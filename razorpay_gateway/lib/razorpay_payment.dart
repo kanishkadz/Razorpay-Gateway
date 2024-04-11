@@ -103,8 +103,43 @@ class _RazorPayPageState extends State<RazorPayPage> {
                 decoration: InputDecoration(
                     labelText: 'Enter amount to be paid',
                     labelStyle: TextStyle(fontSize: 15.0, color: Colors.white),
-                    border: OutlineInputBorder()),
+                    border: OutlineInputBorder(
+                        borderSide: BorderSide(
+                      color: Colors.white,
+                      width: 1.0,
+                    )),
+                    enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                      color: Colors.white,
+                      width: 1.0,
+                    )),
+                    errorStyle: TextStyle(color: Colors.red, fontSize: 15)),
+                controller: amtController,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter Amount to be paid';
+                  }
+                  return null;
+                },
               ),
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            ElevatedButton(
+              onPressed: () {
+                if (amtController.text.toString().isNotEmpty) {
+                  setState(() {
+                    int amount = int.parse(amtController.text.toString());
+                    openCheckout(amount);
+                  });
+                }
+              },
+              child: Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Text('Make Payment'),
+              ),
+              style: ElevatedButton.styleFrom(primary: Colors.green),
             )
           ],
         ),
