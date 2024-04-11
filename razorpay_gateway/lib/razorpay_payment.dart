@@ -50,6 +50,20 @@ class _RazorPayPageState extends State<RazorPayPage> {
   }
 
   @override
+  void dispose() {
+    super.dispose();
+    _razorpay.clear();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _razorpay = Razorpay();
+    _razorpay.on(Razorpay.EVENT_PAYMENT_SUCCESS, handlePaymentSuccess);
+    _razorpay.on(Razorpay.EVENT_PAYMENT_ERROR, handlePaymentError);
+  }
+
+  @override
   Widget build(BuildContext context) {
     return const Placeholder();
   }
