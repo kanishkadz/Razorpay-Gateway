@@ -37,6 +37,18 @@ class _RazorPayPageState extends State<RazorPayPage> {
         toastLength: Toast.LENGTH_SHORT);
   }
 
+  void handlePaymentError(PaymentFailureResponse response) {
+    Fluttertoast.showToast(
+        msg: "Payment Fail " + response.message!,
+        toastLength: Toast.LENGTH_SHORT);
+  }
+
+  void handleExternalWallet(ExternalWalletResponse response) {
+    Fluttertoast.showToast(
+        msg: "External Wallet " + response.walletName!,
+        toastLength: Toast.LENGTH_SHORT);
+  }
+
   @override
   Widget build(BuildContext context) {
     return const Placeholder();
