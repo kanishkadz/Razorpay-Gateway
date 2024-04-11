@@ -79,6 +79,33 @@ class _RazorPayPageState extends State<RazorPayPage> {
               height: 100,
               width: 300,
             ),
+            SizedBox(
+              height: 10,
+            ),
+            Text(
+              "Welcome to Razorpay Gateway Integration",
+              style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+                fontSize: 18,
+              ),
+              textAlign: TextAlign.center,
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            Padding(
+              padding: EdgeInsets.all(8.0),
+              child: TextFormField(
+                cursorColor: Colors.white,
+                autofocus: false,
+                style: TextStyle(color: Colors.white),
+                decoration: InputDecoration(
+                    labelText: 'Enter amount to be paid',
+                    labelStyle: TextStyle(fontSize: 15.0, color: Colors.white),
+                    border: OutlineInputBorder()),
+              ),
+            )
           ],
         ),
       ),
